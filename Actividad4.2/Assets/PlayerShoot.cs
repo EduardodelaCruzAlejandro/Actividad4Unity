@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        Debug.Log("We are fired");
+        Instantiate(arrowPrefab, transform.position, Quaternion.identity);
 
     }
 
@@ -46,9 +46,6 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        }
+       
     }
 }
