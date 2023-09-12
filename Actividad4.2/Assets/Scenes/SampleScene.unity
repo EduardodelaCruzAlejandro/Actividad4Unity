@@ -266,6 +266,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1dbdab80-23d1-4e58-8005-e5a0cab0f343
     m_ActionName: Player/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77499dd2-ec1a-45d9-a01c-9c6b6dfb25f7
+    m_ActionName: Player/Position[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -475,7 +479,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

@@ -9,7 +9,10 @@ public class PlayerShoot : MonoBehaviour
 
     public PlayerInteract PlayerActions;
     private InputAction click;
+    private InputAction position;
     public GameObject arrowPrefab;
+
+    Ray ray;
 
     private void Awake()
     {
@@ -21,17 +24,32 @@ public class PlayerShoot : MonoBehaviour
         click = PlayerActions.Player.Click;
         click.Enable();
         click.performed += Interact;
+
+        position = PlayerActions.Player.Position;
+        position.Enable();
+
+
     }
 
     private void OnDisable()
     {
         click.Disable();
+        position.Disable();
+   
     }
 
 
     private void Interact(InputAction.CallbackContext context)
     {
-        Instantiate(arrowPrefab, transform.position, Quaternion.identity);
+        
+        Vector2 mousePosition = PlayerActions.Player.Position.ReadValue<Vector2>();
+        ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity))
+        {
+            Instantiate(arrowPrefab, hit.point, Quaternion.identity);
+        }
+
 
     }
 
